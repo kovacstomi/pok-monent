@@ -32,10 +32,10 @@ const usePokemonQuery = <TypeOfData = unknown, TypeOfError = unknown>({
   }, [callbackFn]);
 
   useEffect(() => {
-    if (enabled) {
+    if (enabled && queryState.status === "idle") {
       fetchQuery();
     }
-  }, [enabled, fetchQuery]);
+  }, [enabled, fetchQuery, queryState.status]);
 
   return {
     isLoading: queryState.status === "loading",
