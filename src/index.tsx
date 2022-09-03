@@ -1,13 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
+export { default as Pokemonent } from "./components/pokemonent/Pokemonent";
+export { default as usePokemonQuery } from "./hooks/usePokemonQuery";
+export { default as RestPokemonProvider } from "./pokemon_providers/rest/restPokemonProvider";
+export type {
+  Pokemon,
+  PokemonProvider
+} from "./pokemon_providers/pokemonProvider";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
