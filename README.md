@@ -22,7 +22,7 @@ root.render(
 
 | Property | Type | Required? | Description |
 |:---|:---|:---:|:---|
-| pokemonProvider | PokemonProvider | yes | The provider of Pokémon fetching strategy |
+| pokemonProvider | [PokemonProvider](https://github.com/kovacstomi/pokemonent#pokemonprovider-props) | yes | The provider of Pokémon fetching strategy |
 | imageHeight | number | | The height of the image. Defaults to `200` |
 | imageWidth | number | | The width of the image. Defaults to `200`. The container uses the same dimension |
 | imageClassName | string | | Custom class name for the image |
