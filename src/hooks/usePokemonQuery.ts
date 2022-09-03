@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
-type UsePokemonQueryProps = {
-  callbackFn: () => Promise<any>;
+type UsePokemonQueryProps<TypeOfData> = {
+  callbackFn: () => Promise<TypeOfData>;
   enabled?: boolean;
 };
 
@@ -14,7 +14,7 @@ type QueryState<TypeOfData, TypeOfError> =
 const usePokemonQuery = <TypeOfData = unknown, TypeOfError = unknown>({
   callbackFn,
   enabled = true,
-}: UsePokemonQueryProps) => {
+}: UsePokemonQueryProps<TypeOfData>) => {
   const [queryState, setQueryState] = useState<
     QueryState<TypeOfData, TypeOfError>
   >({
