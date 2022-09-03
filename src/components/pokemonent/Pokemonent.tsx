@@ -1,3 +1,4 @@
+import React from "react";
 import { HTMLAttributes, useCallback } from "react";
 import usePokemonQuery from "../../hooks/usePokemonQuery";
 import { PokemonProvider } from "../../pokemon_providers/pokemonProvider";
