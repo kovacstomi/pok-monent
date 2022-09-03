@@ -34,7 +34,7 @@ root.render(
 | Property | Params | Promise Response | Description |
 |:---|:---|:---:|:---|
 | fetchAllPokemons | - | string[] | Callback to fetch all available Pokémons names or ids |
-| fetchPokemon | name: string | Pokemon | Callback to fetch details of a single Pokémon by name or id |
+| fetchPokemon | name: string | [Pokemon](https://github.com/kovacstomi/pokemonent#pokemonprovider-props) | Callback to fetch details of a single Pokémon by name or id |
 
 ## Pokemon props
 
