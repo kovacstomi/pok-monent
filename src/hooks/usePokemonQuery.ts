@@ -27,6 +27,7 @@ const usePokemonQuery = <TypeOfData = unknown, TypeOfError = unknown>({
       const data = await callbackFn();
       setQueryState({ status: "success", data });
     } catch (error: any) {
+      console.error(error);
       setQueryState({ status: "error", error });
     }
   }, [callbackFn]);
