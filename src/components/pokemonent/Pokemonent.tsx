@@ -31,7 +31,7 @@ const Pokemonent = ({
     [pokemonProvider]
   );
 
-  const { data: allPokemons, error: fetchAllPokemonsError } = usePokemonQuery({
+  const { data: allPokemons, isError: isFetAllPokemonsError } = usePokemonQuery({
     callbackFn: fetchAllPokemons,
   });
 
@@ -42,7 +42,7 @@ const Pokemonent = ({
 
   const {
     data: pokemon,
-    error: pokemonError,
+    isError: isPokemonError,
     isLoading: isLoadingPokemon,
     isIdle: isPokemonIdle,
   } = usePokemonQuery({
@@ -55,7 +55,7 @@ const Pokemonent = ({
   let pokemonImageClassName = "";
   let caption = "";
 
-  if (pokemonError || fetchAllPokemonsError) {
+  if (isFetAllPokemonsError || isPokemonError) {
     alt = `Pokemon fetch error`;
     src = errorImage;
     pokemonImageClassName = styles.image;
