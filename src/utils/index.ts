@@ -1,4 +1,7 @@
-const generateRandomPokemonIndex = (total: number = 1) =>
+const pickRandomPokemon = (total: number = 1) =>
   Math.floor(Math.random() * total);
 
-export { generateRandomPokemonIndex };
+const classNames = (...classNames: Array<string | undefined>) =>
+  classNames.filter(Boolean).join(" ");
+
+export { pickRandomPokemon, classNames };
