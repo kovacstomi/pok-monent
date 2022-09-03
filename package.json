@@ -1,12 +1,20 @@
 {
   "name": "pokemonent",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Display a random Pokémon using pokéAPI",
   "author": "Tamás Kovács",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/kovacstomi/pokemonent"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
   "keywords": [
     "react",
@@ -19,8 +27,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "clean-windows": "rd dist /s /q",
-    "build-windows": "tsc && copy package.json README.md ./dist"
+    "build": "rm -rf dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && ./fix-package-types.sh"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
