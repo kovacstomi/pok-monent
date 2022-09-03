@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# Pokémonent
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React component to display a random Pokémon available in movies, series and video game franchise. Powered by [PokéAPI](https://pokeapi.co/).
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+To use it import the `Pokemonent` and create a Pokémon provider or use one of the pre-built providers.
 
-### `npm start`
+```jsx
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { Pokemonent, RestPokemonProvider } from "react-highlight-words";
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+const root = createRoot(document.getElementById("root"));
+root.render(
+  <Pokemonent
+    pokemonProvider={RestPokemonProvider}
+  />
+);
+```
+## Pokemonent Props
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+| Property | Type | Required? | Description |
+|:---|:---|:---:|:---|
+| pokemonProvider | PokemonProvider | yes | The provider of Pokémon fetching strategy |
+| imageHeight | number | | The height of the image. Defaults to `200` |
+| imageWidth | number | | The width of the image. Defaults to `200`. The container uses the same dimension |
+| imageClassName | string | | Custom class name for the image |
+| captionClassName | string | | Custom class name for the figcaption |
+| * | HTMLAttributes | | Any other props (such as `title`) are applied to the outer/wrapper `<figure>` |
 
-### `npm test`
+## PokemonProvider Props
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Property | Params | Promise Response | Description |
+|:---|:---|:---:|:---|
+| fetchAllPokemons | - | string[] | Callback to fetch all available Pokémons names or ids |
+| fetchPokemon | name: string | Pokemon | Callback to fetch details of a single Pokémon by name or id |
 
-### `npm run build`
+## Pokemon props
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Property | Type | Required? | Description |
+|:---|:---|:---:|:---|
+| name | string | yes | The name of the Pokémon |
+| imageURL | string | | The image URL of the Pokémon |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## License
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+MIT License - fork, modify and use however you want.
